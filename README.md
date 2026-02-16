@@ -1,6 +1,6 @@
 # OpenClaw Research Tool
 
-A tool for [OpenClaw](https://openclaw.ai) agents to search the web using LLMs via [OpenRouter](https://openrouter.ai). Ask questions in natural language, get cited answers with sources.
+Web search for [OpenClaw](https://openclaw.ai) agents, powered by [OpenRouter](https://openrouter.ai). Ask questions in natural language, get accurate answers with cited sources. Defaults to GPT-5.2 which excels at documentation lookups and citation-heavy research.
 
 ```bash
 research-tool "How do I set reasoning effort parameters on OpenRouter?"

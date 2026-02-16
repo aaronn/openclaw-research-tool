@@ -6,9 +6,9 @@ metadata: {"openclaw": {"emoji": "🔍", "requires": {"bins": ["research-tool"],
 
 # OpenClaw Search Tool
 
-A CLI for OpenClaw agents to search the web using LLMs via OpenRouter. The `:online` model suffix gives any model **live web access** — it searches the web, reads pages, cites URLs, and synthesizes an answer.
+Web search for OpenClaw agents, powered by OpenRouter. Ask questions in natural language, get accurate answers with cited sources. Defaults to GPT-5.2 which excels at documentation lookups and citation-heavy research.
 
-**Search in natural language.** Write your query the way you'd ask a person, not as keywords.
+The `:online` model suffix gives any model **live web access** — it searches the web, reads pages, cites URLs, and synthesizes an answer.
 
 ## Install
 
