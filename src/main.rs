@@ -155,8 +155,9 @@ struct Args {
     max_tokens: u32,
 
     /// Request timeout in seconds. GPT-5.2:online performs deep web search
-    /// which can take several minutes. Default 600s (10 min).
-    #[arg(long, default_value = "600")]
+    /// which can take several minutes. xhigh reasoning can exceed 10 minutes.
+    /// Default 1800s (30 min).
+    #[arg(long, default_value = "1800")]
     timeout: u64,
 
     /// OpenRouter API key (reads from OPENROUTER_API_KEY env var by default).

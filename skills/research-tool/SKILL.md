@@ -91,9 +91,9 @@ cat detailed-prompt.txt | research-tool --stdin
 
 Maximum tokens in the response.
 
-### `--timeout` (default: `600`)
+### `--timeout` (default: `1800`)
 
-Request timeout in seconds. Default is 10 minutes for deep web searches.
+Request timeout in seconds. Default is 30 minutes to accommodate xhigh reasoning queries.
 
 ## Output format
 
