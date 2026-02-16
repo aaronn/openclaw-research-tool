@@ -1,0 +1,23 @@
+[package]
+name = "openclaw-search-tool"
+version = "0.1.2"
+edition = "2021"
+description = "OpenClaw Research Tool — web search for AI agents via OpenRouter LLMs"
+license = "MIT"
+repository = "https://github.com/aaronn/openclaw-research-tool"
+keywords = ["openclaw", "research", "openrouter", "llm", "web-search"]
+categories = ["command-line-utilities"]
+
+[[bin]]
+name = "research-tool"
+path = "src/main.rs"
+
+[dependencies]
+reqwest = { version = "0.12", features = ["json"] }
+tokio = { version = "1", features = ["full"] }
+clap = { version = "4", features = ["derive", "env"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+anyhow = "1"
+dotenvy = "0.15"
+dirs = "6.0.0"
