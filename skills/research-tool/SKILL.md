@@ -1,7 +1,7 @@
 ---
 name: research-tool
 description: Search the web using LLMs via OpenRouter. Use for current web data, API docs, market research, news, fact-checking, or any question that benefits from live internet access and reasoning.
-metadata: {"openclaw": {"emoji": "🔍", "requires": {"bins": ["research-tool"], "env": ["OPENROUTER_API_KEY"]}, "primaryEnv": "OPENROUTER_API_KEY", "install": [{"kind": "download", "url": "https://github.com/aaronn/openclaw-search-tool", "note": "cargo install openclaw-search-tool"}]}}
+metadata: {"openclaw": {"emoji": "🔍", "requires": {"bins": ["research-tool"], "env": ["OPENROUTER_API_KEY"]}, "primaryEnv": "OPENROUTER_API_KEY", "homepage": "https://github.com/aaronn/openclaw-search-tool"}}
 ---
 
 # OpenClaw Search Tool
