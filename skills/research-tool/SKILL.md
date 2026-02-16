@@ -91,9 +91,9 @@ cat detailed-prompt.txt | research-tool --stdin
 
 Maximum tokens in the response.
 
-### `--timeout` (default: `1800`)
+### `--timeout` (optional, no default)
 
-Request timeout in seconds. Default is 30 minutes to accommodate xhigh reasoning queries.
+No timeout by default — queries run until the model finishes. Set this only if you need a hard upper bound (e.g. `--timeout 300`).
 
 ## Output format
 

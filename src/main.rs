@@ -154,11 +154,10 @@ struct Args {
     #[arg(long, default_value = "12800")]
     max_tokens: u32,
 
-    /// Request timeout in seconds. GPT-5.2:online performs deep web search
-    /// which can take several minutes. xhigh reasoning can exceed 10 minutes.
-    /// Default 1800s (30 min).
-    #[arg(long, default_value = "1800")]
-    timeout: u64,
+    /// Request timeout in seconds. No timeout by default — queries complete
+    /// when the model finishes. Set this only if you need a hard upper bound.
+    #[arg(long)]
+    timeout: Option<u64>,
 
     /// OpenRouter API key (reads from OPENROUTER_API_KEY env var by default).
     /// Only needed as a flag to override the env var.
@@ -258,9 +257,11 @@ async fn main() -> Result<()> {
 
     eprintln!("🔍 Researching with {} (effort: {})...", args.model, args.effort);
 
-    let client = reqwest::Client::builder()
-        .timeout(Duration::from_secs(args.timeout))
-        .build()?;
+    let mut client_builder = reqwest::Client::builder();
+    if let Some(timeout) = args.timeout {
+        client_builder = client_builder.timeout(Duration::from_secs(timeout));
+    }
+    let client = client_builder.build()?;
 
     let mut messages = Vec::new();
 

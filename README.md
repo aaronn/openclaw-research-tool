@@ -61,7 +61,7 @@ research-tool "Explain the React Server Components architecture" > output.md
 | `--effort` | `-e` | `low` | Reasoning effort: `low`, `medium`, `high`, `xhigh` |
 | `--system` | `-s` | Research assistant | Custom system prompt / persona |
 | `--max-tokens` | | `12800` | Max response tokens |
-| `--timeout` | | `1800` | Request timeout in seconds (30 min default for xhigh) |
+| `--timeout` | | none | Optional request timeout in seconds (no timeout by default) |
 | `--stdin` | | | Read query from stdin |
 
 ## How it works
