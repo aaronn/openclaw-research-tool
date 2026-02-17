@@ -291,16 +291,22 @@ async fn main() -> Result<()> {
         }),
     };
 
-    // Elapsed timer — prints progress ticks to stderr so agents know the process is alive
+    // Elapsed timer — updates every second so agents and users know the process is alive
     let start = std::time::Instant::now();
+    use std::io::IsTerminal;
+    let is_tty = std::io::stderr().is_terminal();
     let timer_start = start;
     let timer_handle = tokio::spawn(async move {
-        let mut interval = tokio::time::interval(Duration::from_secs(15));
+        let mut interval = tokio::time::interval(Duration::from_secs(1));
         interval.tick().await; // skip immediate first tick
         loop {
             interval.tick().await;
             let elapsed = timer_start.elapsed().as_secs();
-            eprintln!("⏳ Still working... {}s elapsed", elapsed);
+            if is_tty {
+                eprint!("\r⏳ {}s ", elapsed);
+            } else {
+                eprintln!("⏳ {}s", elapsed);
+            }
         }
     });
 
