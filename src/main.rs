@@ -291,26 +291,23 @@ async fn main() -> Result<()> {
         }),
     };
 
-    // Elapsed timer — prints progress ticks only when stderr is a TTY (interactive terminal)
+    // Elapsed timer — prints progress ticks to stderr so agents know the process is alive
     let start = std::time::Instant::now();
-    use std::io::IsTerminal;
-    let is_tty = std::io::stderr().is_terminal();
     let timer_start = start;
     let timer_handle = tokio::spawn(async move {
-        if !is_tty { return; }
         let mut interval = tokio::time::interval(Duration::from_secs(15));
         interval.tick().await; // skip immediate first tick
         loop {
             interval.tick().await;
             let elapsed = timer_start.elapsed().as_secs();
-            eprint!("⏳ {}s... ", elapsed);
+            eprintln!("⏳ Still working... {}s elapsed", elapsed);
         }
     });
 
     let resp = client
         .post("https://openrouter.ai/api/v1/chat/completions")
         .header("Authorization", format!("Bearer {}", api_key))
-        .header("HTTP-Referer", "https://github.com/aaronn/openclaw-research-tool")
+        .header("HTTP-Referer", "https://github.com/aaronn/openclaw-search-tool")
         .header("X-Title", "OpenClaw Research Tool")
         .json(&body)
         .send()
