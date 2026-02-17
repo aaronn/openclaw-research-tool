@@ -8,6 +8,8 @@ Web search for [OpenClaw](https://openclaw.ai) agents, powered by [OpenRouter](h
 > ```
 > sessions_spawn task:"research-tool 'your query here'"
 > ```
+>
+> **⚠️ Never set a timeout on exec when running research-tool.** Queries routinely take 1-10+ minutes. Use `yieldMs` to background it, then poll — but do NOT set `timeout` or the process will be killed mid-search.
 
 ```bash
 research-tool "How do I set reasoning effort parameters on OpenRouter?"

@@ -14,6 +14,8 @@ Web search for OpenClaw agents, powered by OpenRouter. Ask questions in natural 
 > ```
 > sessions_spawn task:"research-tool 'your query here'"
 > ```
+>
+> **⚠️ Never set a timeout on exec when running research-tool.** Queries routinely take 1-10+ minutes. Use `yieldMs` to background it, then poll — but do NOT set `timeout` or the process will be killed mid-search.
 
 The `:online` model suffix gives any model **live web access** — it searches the web, reads pages, cites URLs, and synthesizes an answer.
 
