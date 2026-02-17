@@ -82,7 +82,7 @@ research-tool "Explain the React Server Components architecture" > output.md
 
 - **Write naturally.** "What are the best practices for Rust error handling?" works better than keyword-style queries.
 - **Provide context.** The model starts from zero — the more detail you give, the better the answer. A 200-word question with background context will outperform a 5-word question.
-- **Use effort levels.** `--effort low` for quick lookups (seconds), `--effort xhigh` for deep research (minutes).
+- **Use effort levels.** `--effort low` for quick lookups (~1-3 min), `--effort xhigh` for deep research (5-20+ min).
 - **Any model works with `:online`.** Try `anthropic/claude-opus-4-6:online` or `google/gemini-2.5-pro:online` for different perspectives.
 
 ## Output

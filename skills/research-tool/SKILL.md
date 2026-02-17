@@ -34,6 +34,17 @@ research-tool "What are the x.com API rate limits?"
 research-tool "How do I set reasoning effort parameters on OpenRouter?"
 ```
 
+### From an OpenClaw agent
+
+```python
+# Best: run in a sub-agent (main session stays responsive)
+sessions_spawn task:"research-tool 'your query here'"
+
+# Or via exec — NEVER set timeout, use yieldMs to background:
+exec command:"research-tool 'your query'" yieldMs:5000
+# then poll the session until complete
+```
+
 ## Flags
 
 ### `--effort`, `-e` (default: `low`)
@@ -49,10 +60,10 @@ research-tool --effort xhigh "Deep analysis of React Server Components vs tradit
 
 | Level | Speed | When to use |
 |-------|-------|-------------|
-| `low` | ~1-5s | Quick fact lookups, simple questions |
-| `medium` | ~5-15s | Standard research, moderate analysis |
-| `high` | ~15-60s | Deep analysis with careful reasoning |
-| `xhigh` | ~30-120s+ | Maximum reasoning, complex multi-source synthesis |
+| `low` | ~1-3 min | Quick fact lookups, simple questions |
+| `medium` | ~2-5 min | Standard research, moderate analysis |
+| `high` | ~3-10 min | Deep analysis with careful reasoning |
+| `xhigh` | ~5-20+ min | Maximum reasoning, complex multi-source synthesis |
 
 Can also be set via env var `RESEARCH_EFFORT`.
 
